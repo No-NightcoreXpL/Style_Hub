@@ -1,0 +1,97 @@
+.register-page {
+  display: flex;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+/* Lado izquierdo */
+.register-left {
+  flex: 1;
+  background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  text-align: center;
+}
+
+.register-left h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #f39c12;
+}
+
+/* Lado derecho */
+.register-right {
+  flex: 1;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.05);
+}
+
+.register-right h2 {
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  color: #222;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.register-form label {
+  font-size: 14px;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+}
+
+.register-form input,
+.register-form select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-top: 5px;
+}
+
+.register-form input:focus,
+.register-form select:focus {
+  border-color: #f39c12;
+  outline: none;
+}
+
+.register-form .checkbox {
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.register-form button {
+  background: #222;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+.register-form button:hover {
+  background: #f39c12;
+}
+
+.login-link {
+  margin-top: 15px;
+  font-size: 14px;
+  text-align: center;
+}

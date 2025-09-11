@@ -3,12 +3,14 @@
   justify-content: space-between;
   align-items: center;
   padding: 15px 30px;
-  background-color: #222;
+  background-color: #bec0af;
   color: #fff;
 }
 
-.logo {
-  margin: 0;
+.logo img {
+  height: 120px;     
+  width: auto;
+  display: block;
 }
 
 .menu {

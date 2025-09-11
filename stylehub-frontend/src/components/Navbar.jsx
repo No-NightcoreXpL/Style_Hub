@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom"
 import "./Navbar.css"
+import logo from "../assets/logo.svg"   
 
 function Navbar() {
   return (
     <nav className="navbar">
-      {/**/}
-      <h2 className="logo">
-        <Link to="/">StyleHub 🛍️</Link>
-      </h2>
+      <Link to="/" className="logo">
+        <img src={logo} alt="StyleHub Logo" />
+      </Link>
 
       <ul className="menu">
         <li><Link to="/">Inicio</Link></li>
