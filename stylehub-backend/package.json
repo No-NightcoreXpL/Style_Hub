@@ -1,9 +1,9 @@
 {
   "name": "stylehub-backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "Backend API for StyleHub application",
   "main": "index.js",
-  "type": "module",  
+  "type": "module",
   "scripts": {
     "dev": "nodemon src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -14,7 +14,11 @@
   "dependencies": {
     "bcrypt": "^6.0.0",
     "cors": "^2.8.5",
+    "dotenv": "^17.2.2",
     "express": "^4.21.2",
     "pg": "^8.16.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
   }
 }
