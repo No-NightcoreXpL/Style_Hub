@@ -1,21 +1,24 @@
-import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom"
-import Navbar from "./components/Navbar"
-import Home from "./pages/Home"
-import Catalogo from "./pages/Catalogo"
-import Carrito from "./pages/Carrito"
-import Login from "./pages/Login"
-import Register from "./pages/Register"
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import Home from './pages/Home';
+import Catalogo from './pages/Catalogo';
+import Carrito from './pages/Carrito';
+import Login from './pages/Login';
+import Register from './pages/Register';
 
 function AppLayout() {
-  const location = useLocation()
+  const location = useLocation();
 
-  // rutas donde no queremos navbar
-  const hideNavbar = ["/login", "/register"]
+  // rutas donde no queremos navbar ni footer
+  const hideNavbarPaths = ["/login", "/register"];
+  const shouldShowNavbar = !hideNavbarPaths.includes(location.pathname);
+  const shouldShowFooter = !hideNavbarPaths.includes(location.pathname);
 
   return (
-    <>
-      {!hideNavbar.includes(location.pathname) && <Navbar />}
-      <main>
+    <div className="flex flex-col min-h-screen">
+      {shouldShowNavbar && <Navbar />}
+      <main className="flex-grow">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Navigate to="/" replace />} />
@@ -26,7 +29,8 @@ function AppLayout() {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
-    </>
+      {shouldShowFooter && <Footer />}
+    </div>
   )
 }
 

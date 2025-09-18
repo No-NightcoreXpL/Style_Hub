@@ -3,12 +3,16 @@ import cors from "cors"
 import bcrypt from "bcrypt"
 import pool from "./db.js"
 import dotenv from "dotenv"
+import productosRoutes from "./routes/productos.js"
 
 dotenv.config() // 
 
 const app = express()
 app.use(cors())
 app.use(express.json())
+
+// Rutas de productos
+app.use("/api/productos", productosRoutes)
 
 // Ruta de prueba
 app.get("/", (req, res) => {
