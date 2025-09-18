@@ -59,7 +59,7 @@ function Navbar() {
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-6">
           <Link to="/" className={`font-montserrat hover:text-stylehub-gold transition-colors duration-300 nav-link ${location.pathname === '/' ? 'font-bold' : ''}`}>Inicio</Link>
-          <Link to="/catalogo" className={`font-montserrat hover:text-stylehub-gold transition-colors duration-300 nav-link ${location.pathname === '/catalogo' ? 'font-bold' : ''}`}>Catálogo</Link>
+          <Link to="/catalogo" className={`font-montserrat hover:text-stylehub-gold transition-colors duration-300 nav-link ${location.pathname === '/catalogo' ? 'font-bold' : ''}`}>Categorías</Link>
           <Link to="/carrito" className={`font-montserrat hover:text-stylehub-gold transition-colors duration-300 nav-link ${location.pathname === '/carrito' ? 'font-bold' : ''}`}>
             Carrito <span className="bg-stylehub-gold text-stylehub-navy px-2 py-1 rounded-full text-xs ml-1">0</span>
           </Link>
@@ -113,7 +113,7 @@ function Navbar() {
         <div className="md:hidden bg-stylehub-navy py-3 px-4 mt-2 mobile-menu">
           <div className="flex flex-col space-y-4">
             <Link to="/" className={`font-montserrat hover:text-stylehub-gold transition-colors duration-300 ${location.pathname === '/' ? 'font-bold' : ''}`} onClick={toggleMenu}>Inicio</Link>
-            <Link to="/catalogo" className={`font-montserrat hover:text-stylehub-gold transition-colors duration-300 ${location.pathname === '/catalogo' ? 'font-bold' : ''}`} onClick={toggleMenu}>Catálogo</Link>
+            <Link to="/catalogo" className={`font-montserrat hover:text-stylehub-gold transition-colors duration-300 ${location.pathname === '/catalogo' ? 'font-bold' : ''}`} onClick={toggleMenu}>Categorías</Link>
             <Link to="/carrito" className={`font-montserrat hover:text-stylehub-gold transition-colors duration-300 ${location.pathname === '/carrito' ? 'font-bold' : ''}`} onClick={toggleMenu}>
               Carrito <span className="bg-stylehub-gold text-stylehub-navy px-2 py-1 rounded-full text-xs ml-1">0</span>
             </Link>
