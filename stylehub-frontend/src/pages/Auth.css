@@ -1,3 +1,4 @@
+/* Estilos compartidos para autenticación */
 .auth-container {
   max-width: 400px;
   margin: 50px auto;
@@ -25,12 +26,20 @@
   text-align: left;
   font-size: 14px;
   color: #333;
+  font-weight: 500;
 }
 
 .auth-form input {
-  padding: 10px;
-  border: 1px solid #ccc;
+  padding: 12px;
+  border: 1px solid #e0e0e0;
   border-radius: 8px;
+  transition: border-color 0.3s;
+}
+
+.auth-form input:focus {
+  outline: none;
+  border-color: #f39c12;
+  box-shadow: 0 0 0 2px rgba(243, 156, 18, 0.2);
 }
 
 .auth-form button {
@@ -51,4 +60,117 @@
 .auth-container p {
   margin-top: 15px;
   font-size: 14px;
+}
+
+/* Estilos específicos para Login */
+.login-page {
+  display: flex;
+  min-height: 100vh;
+}
+
+.login-left {
+  flex: 1;
+  background: linear-gradient(135deg, #222, #444);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  padding: 2rem;
+}
+
+.login-brand {
+  text-align: center;
+}
+
+.login-brand h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.login-brand p {
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
+.login-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: #fff;
+}
+
+.login-form-container {
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-form-container h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+
+.login-subtitle {
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.forgot-password {
+  text-align: right;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.forgot-password a {
+  color: #f39c12;
+  text-decoration: none;
+}
+
+.login-button {
+  width: 100%;
+  padding: 0.875rem;
+  background-color: #222;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-button:hover {
+  background-color: #f39c12;
+}
+
+.register-link {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.register-link a {
+  color: #f39c12;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.auth-error {
+  background-color: #ffebee;
+  color: #c62828;
+  padding: 0.75rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
 }

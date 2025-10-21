@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import logo from '../assets/Logo-sin-eslogan-TRANSPARENTE.png';
 import '../styles/components/Navbar.css';
@@ -7,7 +7,18 @@ function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [showSearch, setShowSearch] = useState(false);
+  const [user, setUser] = useState(null);
+  const [showUserMenu, setShowUserMenu] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Verificar si hay un usuario en localStorage al cargar el componente
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -17,12 +28,22 @@ function Navbar() {
     setShowSearch(!showSearch);
   };
 
+  const toggleUserMenu = () => {
+    setShowUserMenu(!showUserMenu);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('user');
+    setUser(null);
+    navigate('/');
+  };
+
   const handleSearch = (e) => {
     e.preventDefault();
     // Implementar la búsqueda aquí
     console.log('Buscando:', searchQuery);
     // Redirigir a la página de resultados
-    // history.push(`/buscar?q=${searchQuery}`);
+    // navigate(`/buscar?q=${searchQuery}`);
   };
 
   return (
@@ -63,7 +84,37 @@ function Navbar() {
           <Link to="/carrito" className={`font-montserrat hover:text-stylehub-gold transition-colors duration-300 nav-link ${location.pathname === '/carrito' ? 'font-bold' : ''}`}>
             Carrito <span className="bg-stylehub-gold text-stylehub-navy px-2 py-1 rounded-full text-xs ml-1">0</span>
           </Link>
-          <Link to="/login" className="bg-stylehub-gold text-stylehub-navy px-5 py-2 rounded-md hover:bg-stylehub-lightgold transition-all duration-300 font-montserrat font-medium login-button">Login</Link>
+          
+          {user ? (
+            <div className="relative">
+              <button 
+                onClick={toggleUserMenu}
+                className="flex items-center bg-stylehub-gold text-stylehub-navy px-5 py-2 rounded-md hover:bg-stylehub-lightgold transition-all duration-300 font-montserrat font-medium"
+              >
+                <span>{user.name}</span>
+                <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+              
+              {showUserMenu && (
+                <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10">
+                  <Link to="/perfil" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Mi Perfil</Link>
+                  {user.role === 'admin' && (
+                    <Link to="/admin" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Panel Admin</Link>
+                  )}
+                  <button 
+                    onClick={handleLogout}
+                    className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  >
+                    Cerrar Sesión
+                  </button>
+                </div>
+              )}
+            </div>
+          ) : (
+            <Link to="/login" className="bg-stylehub-gold text-stylehub-navy px-5 py-2 rounded-md hover:bg-stylehub-lightgold transition-all duration-300 font-montserrat font-medium login-button">Login</Link>
+          )}
         </div>
         
         {/* Mobile Menu Button and Search Toggle */}

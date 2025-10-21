@@ -79,28 +79,28 @@ function Carousel() {
   }, [goToNextSlide]);
 
   return (
-    <div className="relative w-full h-[500px] overflow-hidden">
+    <div className="relative w-full h-[500px] overflow-hidden pointer-events-none">
       {/* Slides */}
       <div className="relative h-full">
         {carouselItems.map((item, index) => (
           <div 
             key={item.id}
             className={`absolute top-0 left-0 w-full h-full transition-opacity duration-500 ease-in-out ${
-              index === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
+              index === currentIndex ? 'opacity-100 z-1' : 'opacity-0 z-0'
             }`}
           >
-            <div className="absolute inset-0 bg-black bg-opacity-40 z-10"></div>
+            <div className="absolute inset-0 bg-black bg-opacity-40 z-1"></div>
             <img 
               src={item.image} 
               alt={item.title} 
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover pointer-events-none"
             />
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-center z-20 px-4">
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-center z-2 px-4 pointer-events-none">
               <h2 className="text-4xl md:text-5xl font-playfair font-bold text-white mb-4">{item.title}</h2>
               <p className="text-xl text-white mb-8 max-w-2xl font-montserrat">{item.description}</p>
               <Link 
                 to={item.buttonLink} 
-                className="bg-stylehub-gold text-stylehub-navy px-8 py-3 rounded-md font-montserrat font-medium hover:bg-stylehub-lightgold transition-all duration-300 shadow-md hover:shadow-lg"
+                className="bg-stylehub-gold text-stylehub-navy px-8 py-3 rounded-md font-montserrat font-medium hover:bg-stylehub-lightgold transition-all duration-300 shadow-md hover:shadow-lg pointer-events-auto"
               >
                 {item.buttonText}
               </Link>
